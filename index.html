@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+    <meta content='width=device-width' initial-scale='1.0' name='viewport'>
+    <meta content='' name='description'>
+    <meta content='' name='author'>
+    <link href='http://getbootstrap.com/assets/ico/favicon.png' rel='shortcut icon'>
+    <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.css' rel='stylesheet'>
+    <link href='/stylesheets/hack2end.css' rel='stylesheet'>
+    <link href='/stylesheets/c3.css' rel='stylesheet'>
+    <title>
+      Taking Stock
+    </title>
+    <link href='/stylesheets/bootstrap.min.css' rel='stylesheet'>
+    <link href='/stylesheets/jumbotron-narrow.css' rel='stylesheet'>
+    <!--[if lt IE 9]>
+      <script src='/javascripts/ie/html5shiv.js'></script>
+      <script src='/javascripts/ie/respond.min.js'></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class='container' style='max-width:none !important;'>
+      <div class='header'>
+        <h3 class='text-muted' id='hack-2-end'>
+          HayStack #h2eh
+        </h3>
+        <div id='logo'></div>
+        <div class='row marketing' style='margin:15px;'>
+          <div class='col-lg-6'>
+            <h4>
+              Haystack
+            </h4>
+            <p>
+              HayStack is a tool to explore
+              <a href='https://www.onecpd.info/resource/3031/pit-and-hic-data-since-2007/' target='_blank'>
+                Point in Time data
+              </a>
+              provided by the U.S. Department of Housing and Urban Development across the 25 metro areas involved in the
+              <a href='http://www.25cities.com/' target='_blank'>
+                25 Cities Initiative
+              </a>
+              (Continuums of Care).
+            </p>
+          </div>
+        </div>
+        <nav class='navbar navbar-default navbar-static' role='navigation'>
+          <div class='container-fluid'>
+            <div class='navbar-header'>
+              <button class='navbar-toggle' data-target='navbar-collapse' data-toggle='collapse' type='button'>
+                <span class='sr-only'>Toggle navigation</span>
+                <span class='icon-bar'></span>
+              </button>
+              <a class='navbar-brand' href='#'>Select Comparison and Year</a>
+            </div>
+            <div class='collapse navbar-collapse'>
+              <ul class='nav navbar-nav'>
+                <li class='dropdown'>
+                  <a class='dropdown-toggle' data-toggle='dropdown' href='#' id='selected-year' role='button'>
+                    <span class='text'>
+                      2007
+                    </span>
+                    <b class='caret'></b>
+                  </a>
+                  <ul aria-labelledby='drop1' class='dropdown-menu' id='years' role='menu'>
+                    <li role='presentation'>
+                      <a data-year='2007' href='' role='menuitem' tabindex='-1'>2007</a>
+                    </li>
+                    <li role='presentation'>
+                      <a data-year='2008' href='' role='menuitem' tabindex='-1'>2008</a>
+                    </li>
+                    <li role='presentation'>
+                      <a data-year='2009' href='' role='menuitem' tabindex='-1'>2009</a>
+                    </li>
+                    <li role='presentation'>
+                      <a data-year='2010' href='' role='menuitem' tabindex='-1'>2010</a>
+                    </li>
+                    <li role='presentation'>
+                      <a data-year='2011' href='' role='menuitem' tabindex='-1'>2011</a>
+                    </li>
+                    <li role='presentation'>
+                      <a data-year='2012' href='' role='menuitem' tabindex='-1'>2012</a>
+                    </li>
+                    <li role='presentation'>
+                      <a data-year='2013' href='' role='menuitem' tabindex='-1'>2013</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+              <ul class='nav navbar-nav'>
+                <li class='dropdown'>
+                  <a class='dropdown-toggle' data-toggle='dropdown' href='#' id='selected-comparison' role='button'>
+                    Housing Units Per Capita
+                    <b class='caret'></b>
+                  </a>
+                  <ul aria-labelledby='drop1' class='dropdown-menu' id='comparisons' role='menu'>
+                    <li role='presentation'>
+                      <a data-comparison='total_beds_per_1000_pop' href='' role='menuitem' tabindex='-1'>Housing Units Per Capita</a>
+                    </li>
+                    <li role='presentation'>
+                      <a data-comparison='psh_per_1000_pop' href='' role='menuitem' tabindex='-1'>Permanent Supportive Housing</a>
+                    </li>
+                    <li role='presentation'>
+                      <a data-comparison='esp_per_1000_pop' href='' role='menuitem' tabindex='-1'>Emergency Shelter</a>
+                    </li>
+                    <li role='presentation'>
+                      <a data-comparison='rrh_per_1000_pop' href='' role='menuitem' tabindex='-1'>Rapid Re-Housing</a>
+                    </li>
+                    <li role='presentation'>
+                      <a data-comparison='thp_per_1000_pop' href='' role='menuitem' tabindex='-1'>Transitional housing</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div class='c3' id='chart' style='max-height: 280px; position: relative;'></div>
+      <div class='jumbotron' id='map-canvas'></div>
+      <div class='row marketing'>
+        <div class='col-lg-6'>
+          <h4>Subheading</h4>
+          <p>
+            Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+          </p>
+        </div>
+      </div>
+      <div class='footer'>
+        <p>
+          <a href='http://hautaulogy.com' target='_blank'>Made by this crazy person.</a>
+        </p>
+      </div>
+    </div>
+    <script src='/javascripts/jquery-2.0.3.min.js'></script>
+    <script src='/javascripts/bootstrap.min.js'></script>
+    <script src='/javascripts/d3.min.js'></script>
+    <script src='/javascripts/c3.min.js'></script>
+    <script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.js'></script>
+    <script src='/javascripts/hack2end.js'></script>
+    <script src='/javascripts/dropdown.js'></script>
+  </body>
+</html>
